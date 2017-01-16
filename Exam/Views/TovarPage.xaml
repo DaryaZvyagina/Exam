@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Exam.Views.TovarPage"
+             Title="Каталог товаров"
+             Padding="10,20,20,10">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Выход"
+                     Command="{Binding ExitCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ListView ItemsSource="{Binding Tovar}" 
+              HasUnevenRows="True" 
+              ItemTapped="ListView_OnItemTapped" 
+              x:Name="listview">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}"
+                                   HeightRequest="100"
+                                   WidthRequest="100"/>
+                            <StackLayout>
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Price}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
